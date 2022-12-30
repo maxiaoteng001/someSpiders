@@ -8,6 +8,7 @@ echo "生效虚拟环境"
 source ./venv_somespiders/bin/activate
 
 echo "安装依赖"
+pip install --upgrade pip
 pip install -r requirement.txt
 
 echo "杀掉历史进程"
