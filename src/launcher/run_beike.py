@@ -35,8 +35,8 @@ def crawler_beike_ershoufang():
 
 def cron_job():
     sched = BlockingScheduler()
-    # 一小时一次, 暂时不需要更新城市列表
-    sched.add_job(func=crawler_beike_ershoufang, trigger='cron', minute='01', id='crawler_beike_ershoufang')
+    # 日任务, 暂时不需要更新城市列表
+    sched.add_job(func=crawler_beike_ershoufang, trigger='cron', hour='10', minute='01', id='crawler_beike_ershoufang')
 
     sched.start()
 
