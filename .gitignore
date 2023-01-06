@@ -1,2 +1,8 @@
 *.pyc
 venv_somespiders/*
+.DS_Store
+csv/*
+csv_old/*
+pdf/*
+pdf_all/*
+logs/*
