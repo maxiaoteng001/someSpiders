@@ -70,8 +70,13 @@ def parse_csv_data_to_mysql(csv_path):
         csv_reader = csv.DictReader(f, fieldnames=fieldnames)
         for row in csv_reader:
             detail = dict(row)
-            if detail.get('origin_id') and detail.get('origin_id') == "序号":
+            if detail.get('origin_id') is None:
                 continue
+            else:
+                try:
+                    origin_id = int(detail.get('origin_id'))
+                except:
+                    pass
             detail["ts"] = str(datetime.datetime.today())
             detail["ts_short"] = str(datetime.date.today())
             detail["content_id"] = csv_path.split('/')[-1].split('.')[0]
@@ -81,7 +86,6 @@ def parse_csv_data_to_mysql(csv_path):
                 if k not in ("hospital", "grade", "district", "Emergency_room_crowding_level") and v:
                     # 正则提取[\d.]
                     detail[k] = re.sub(r'[^0-9.]', '', v)
-            detail.pop('origin_id', None)
             detail.pop('grade', None)
             detail.pop('district', None)
             details.append(detail)

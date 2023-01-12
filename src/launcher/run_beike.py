@@ -29,7 +29,7 @@ def start_up_spider(spider_name, pools=1):
 
 
 def crawler_beike_ershoufang():
-    por = subprocess.Popen('cd ../spiders && python3 beike_ershoufang.py &', shell=True, stdout=None)
+    por = subprocess.Popen('source ../../venv_somespiders/bin/activate && cd ../spiders && python3 beike_ershoufang.py &', shell=True, stdout=None, executable='/bin/bash')
     por.wait()
 
 
