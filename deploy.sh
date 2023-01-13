@@ -16,3 +16,5 @@ ps axu | grep 'run_beike.py'|grep -v 'grep'|awk '{print $2}'|xargs kill -9
 
 echo "启动 run_beike"
 cd src/launcher && nohup python3 run_beike.py >nohup.beike 2>&1 &
+
+cd src/launcher && nohup python3 run_weibo.py >nohup.weibo 2>&1 &
