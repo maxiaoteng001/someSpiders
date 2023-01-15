@@ -29,7 +29,7 @@ def start_up_spider(spider_name, pools=1):
 
 
 def crawler_beijing_metro():
-    por = subprocess.Popen('source ../../venv_somespiders/bin/activate && cd ../some_scrapy && scrapy crawl beijing_metro_weibo >/dev/null 2>&1', shell=True, stdout=None, executable='/bin/bash')
+    por = subprocess.Popen('cd ../some_scrapy && scrapy crawl beijing_metro_weibo >/dev/null 2>&1', shell=True, stdout=None, executable='/bin/bash')
     por.wait()
 
 
