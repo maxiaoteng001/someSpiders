@@ -29,7 +29,7 @@ pandas==1.5.2
 parsel==1.7.0
 pdfminer.six==20221105
 pdfplumber==0.7.6
-pdftables-api==2.0.0
+pdftables-api
 pdftopng==0.2.3
 Pillow==9.4.0
 Protego==0.2.1
