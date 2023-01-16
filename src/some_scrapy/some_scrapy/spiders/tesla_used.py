@@ -98,6 +98,11 @@ class TeslaSpider(scrapy.Spider):
                 if k not in item_keys:
                     other_info[k] = result.pop(k, None)
             result['other_info'] = other_info
+            more_info = {
+                'ts': str(datetime.datetime.today()),
+                'ts_short': str(datetime.date.today()),
+            }
+            result.extend(more_info)
             items.append(result)
         self.client.insert_many(
             'spiders.tesla_used_items', items)
