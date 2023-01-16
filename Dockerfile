@@ -35,4 +35,4 @@ RUN pip install --upgrade pip && pip install wheel &&\
 COPY . /code
 RUN rm -Rf /code/.git
 WORKDIR /code/src/launcher
-CMD ["python3", "run_beike.py", ">nohup.beike", "2>&1", "&&", "python3", "run_weibo.py", ">nohup.weibo", "2>&1"]
+CMD ["python3", "run_spiders.py", ">nohup.spiders", "2>&1"]
