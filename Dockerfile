@@ -33,6 +33,7 @@ RUN pip install --upgrade pip && pip install wheel &&\
 # Code
 #================================================
 COPY . /code
+RUN mkdir -p /code/logs
 RUN rm -Rf /code/.git
 WORKDIR /code/src/launcher
 CMD ["python3", "run_spiders.py", ">nohup.spiders", "2>&1"]
