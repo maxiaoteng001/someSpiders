@@ -17,7 +17,6 @@ class TeslaSpider(scrapy.Spider):
 
     def __init__(self, name=None, **kwargs):
         self.client = MysqlHelper(dbconfig=dbconfig)
-        self.cookies = gen_visitor_info()
         super().__init__(name, **kwargs)
 
     def start_requests(self):
