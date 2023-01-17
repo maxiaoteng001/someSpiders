@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import subprocess
 from apscheduler.schedulers.blocking import BlockingScheduler
-import time
+import datetime
 import os
 import sys
 BASE_DIR = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
@@ -15,12 +15,16 @@ def crawler_beike_ershoufang():
 
 
 def crawler_beijing_metro():
-    por = subprocess.Popen('cd ../some_scrapy && scrapy crawl beijing_metro_weibo >/dev/null 2>&1', shell=True, stdout=None, executable='/bin/bash')
+    spider_name = "beijing_metro_weibo"
+    log_path = f'/code/logs/{spider_name}_{datetime.datetime.strftime(datetime.datetime.now(), "%Y-%m-%d_%H_%M_%S")}.log'
+    por = subprocess.Popen(f'cd ../some_scrapy && scrapy crawl {spider_name} --logfile {log_path} >/dev/null 2>&1', shell=True, stdout=None, executable='/bin/bash')
     por.wait()
 
 
 def crawler_tesla_used():
-    por = subprocess.Popen('cd ../some_scrapy && scrapy crawl tesla_used >/dev/null 2>&1', shell=True, stdout=None, executable='/bin/bash')
+    spider_name = "tesla_used"
+    log_path = f'/code/logs/{spider_name}_{datetime.datetime.strftime(datetime.datetime.now(), "%Y-%m-%d_%H_%M_%S")}.log'
+    por = subprocess.Popen(f'cd ../some_scrapy && scrapy crawl {spider_name} --logfile {log_path} >/dev/null 2>&1', shell=True, stdout=None, executable='/bin/bash')
     por.wait()
 
 

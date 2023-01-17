@@ -102,7 +102,7 @@ class TeslaSpider(scrapy.Spider):
                 'ts': str(datetime.datetime.today()),
                 'ts_short': str(datetime.date.today()),
             }
-            result.extend(more_info)
+            result.update(more_info)
             items.append(result)
         self.client.insert_many(
             'spiders.tesla_used_items', items)
